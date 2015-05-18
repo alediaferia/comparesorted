@@ -5,7 +5,7 @@
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
+     * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
@@ -42,7 +42,7 @@ void compare_sorted(Iterable &i1, // out of date list
     auto it2 = std::begin(i2);
     auto end2 = std::end(i2);
 
-    int counter1, counter2 = 0;
+    int counter1 = 0, counter2 = 0;
     while (it1 != end1) {
         bool found = false;
         while (it2 != end2) {
@@ -71,14 +71,14 @@ void compare_sorted(Iterable &i1, // out of date list
         }
         counter1++;
         ++it1;
-        if (counter1 == i1.size() && it2 != end2) {
+        if (it1 == end1) {
             // all remaining elements of i2 should be
             // registered as new elements
             while (it2 != end2) {
                 added.insert(*it2);
                 ++it2;
             }
-        } else if (it2 == end2 && it1 != end1) {
+        } else if (it2 == end2) {
             while (it1 != end1) {
                 deleted.insert(*it1);
                 ++it1;
