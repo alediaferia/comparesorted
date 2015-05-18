@@ -37,10 +37,10 @@ int main(int argc, char *argv[])
     std::vector<int> s1 { 1,56,4,2,8,7,6,12,5 };  // 1, 2, 4, 5, 6, 7, 8, 12, 56
     std::vector<int> s2 { 4,5,3,45,56,2,1 };      // 1, 2, 3, 4, 5, 45, 56
  
-    sort(s1.begin(), s1.end(), std::greater<int>());
-    sort(s2.begin(), s2.end(), std::greater<int>());
+    sort(s1.begin(), s1.end(), std::less<int>());
+    sort(s2.begin(), s2.end(), std::less<int>());
 
-    compare_sorted(s1, s2, std::greater<int>(), added, deleted);
+    compare_sorted(s1, s2, std::less<int>(), added, deleted);
 
     int expected_deleted[] = { 6, 7, 8, 12 };
     int expected_added[]   = { 3, 45 };
