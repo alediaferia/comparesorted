@@ -30,7 +30,7 @@ The simplest usage case involves 2 sorted arrays. The second array represent a n
         
         std::set<int> added;
         std::set<int> deleted;
-        compare_sorted(old_array, new_array, std::greater<int>(),
+        compare_sorted(old_array, new_array, std::less<int>(),
                        added, deleted);
                        
         std::cout << "Added elements are as follows:" << std::endl;
